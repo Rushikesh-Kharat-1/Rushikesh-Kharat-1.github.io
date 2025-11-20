@@ -34,18 +34,7 @@
       padding: 16px 14px 40px;
     }
 
-    /* ANIMATIONS */
-    @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(16px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
+    /* BASIC ANIMATIONS */
     @keyframes floatSoft {
       0%, 100% {
         transform: translateY(0);
@@ -64,16 +53,27 @@
       }
     }
 
-    .animate {
+    /* SCROLL REVEAL */
+    .reveal-on-scroll {
       opacity: 0;
-      transform: translateY(16px);
-      animation: fadeUp 0.8s ease-out forwards;
+      transform: translateY(18px);
+      filter: blur(4px);
+      transition:
+        opacity 0.7s ease-out,
+        transform 0.7s ease-out,
+        filter 0.7s ease-out;
     }
 
-    .delay-1 { animation-delay: 0.15s; }
-    .delay-2 { animation-delay: 0.30s; }
-    .delay-3 { animation-delay: 0.45s; }
-    .delay-4 { animation-delay: 0.60s; }
+    .reveal-on-scroll.in-view {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0);
+    }
+
+    .delay-1 { transition-delay: 0.15s; }
+    .delay-2 { transition-delay: 0.30s; }
+    .delay-3 { transition-delay: 0.45s; }
+    .delay-4 { transition-delay: 0.60s; }
 
     /* HEADER / NAV */
     header {
@@ -173,9 +173,23 @@
       padding: 18px 18px 20px;
       border: 1px solid rgba(148,163,184,0.3);
       box-shadow: 0 18px 50px rgba(15,23,42,0.9);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background:
+        radial-gradient(circle at 0% 0%, rgba(248, 250, 252, 0.05), transparent 60%),
+        radial-gradient(circle at 100% 120%, rgba(250, 204, 21, 0.08), transparent 55%);
+      pointer-events: none;
+      opacity: 0.8;
     }
 
     .hero-tag {
+      position: relative;
       display: inline-flex;
       align-items: center;
       gap: 8px;
@@ -201,6 +215,7 @@
     }
 
     .hero-title {
+      position: relative;
       font-size: clamp(24px, 4vw, 30px);
       line-height: 1.3;
       margin-bottom: 8px;
@@ -213,6 +228,7 @@
     }
 
     .hero-subtitle {
+      position: relative;
       font-size: 13px;
       color: #d1d5db;
       margin-bottom: 14px;
@@ -223,6 +239,7 @@
     }
 
     .hero-meta {
+      position: relative;
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
@@ -350,6 +367,56 @@
       color: #9ca3af;
     }
 
+    /* LEADERS SECTION */
+    .leaders {
+      margin-top: 14px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 10px;
+    }
+
+    .leader-card {
+      padding: 8px 10px;
+      border-radius: 14px;
+      border: 1px solid rgba(234,179,8,0.6);
+      background: radial-gradient(circle at top, rgba(120,53,15,0.9), #020617);
+      box-shadow: 0 10px 28px rgba(15,23,42,0.95);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .leader-card::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background: radial-gradient(circle at 0% 0%, rgba(252,211,77,0.25), transparent 60%);
+      opacity: 0.8;
+      pointer-events: none;
+    }
+
+    .leader-role {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #fef9c3;
+      margin-bottom: 4px;
+      position: relative;
+    }
+
+    .leader-name {
+      font-size: 13px;
+      font-weight: 700;
+      color: #fffbeb;
+      position: relative;
+    }
+
+    .leader-note {
+      font-size: 11px;
+      color: #fed7aa;
+      margin-top: 3px;
+      position: relative;
+    }
+
     /* EVENTS / ACTIVITIES */
     .event-list {
       display: grid;
@@ -459,6 +526,44 @@
       color: #bfdbfe;
     }
 
+    /* BACK TO TOP BUTTON */
+    .back-to-top {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      padding: 8px 11px;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.7);
+      background: radial-gradient(circle at top, #111827, #020617);
+      font-size: 11px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(10px);
+      transition: opacity 0.25s ease-out, transform 0.25s ease-out, box-shadow 0.2s;
+      box-shadow: 0 10px 30px rgba(15,23,42,0.9);
+      color: #e5e7eb;
+      z-index: 60;
+    }
+
+    .back-to-top span {
+      font-size: 14px;
+    }
+
+    .back-to-top.show {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .back-to-top:hover {
+      box-shadow: 0 14px 40px rgba(15,23,42,1);
+      border-color: rgba(250,204,21,0.8);
+    }
+
     /* FOOTER */
     footer {
       margin-top: 18px;
@@ -494,7 +599,7 @@
 
   <main class="page">
     <!-- HERO / HOME -->
-    <section class="hero animate delay-1" id="home">
+    <section class="hero reveal-on-scroll delay-1" id="home">
       <div class="hero-tag">
         <div class="hero-dot">★</div>
         <span>मैत्री • समाजसेवा • उत्सव</span>
@@ -512,12 +617,15 @@
         <div class="meta-pill highlight">📍 डांगे चौक, पुणे</div>
         <div class="meta-pill">🎉 गणेशोत्सव, क्रिकेट स्पर्धा, सहली</div>
         <div class="meta-pill">🤝 नवीन मित्रांचे स्वागत आहे</div>
+        <div class="meta-pill">
+          🧑‍✈️ अध्यक्ष: <strong>सॅम भाऊ</strong> • उपाध्यक्ष: <strong>प्रशांत भाऊ</strong>
+        </div>
       </div>
     </section>
 
     <div class="grid">
       <!-- ABOUT / GOAL -->
-      <section class="card animate delay-2" id="about">
+      <section class="card reveal-on-scroll delay-2" id="about">
         <h2 class="section-heading">आमच्याबद्दल</h2>
         <p class="section-sub">कोण आहोत आणि काय करतो?</p>
 
@@ -551,10 +659,26 @@
             </div>
           </div>
         </div>
+
+        <h3 class="section-heading" style="margin-top: 14px;">पदाधिकारी</h3>
+        <p class="section-sub">मंडळ चालवणारे मुख्य चेहरे</p>
+
+        <div class="leaders">
+          <div class="leader-card">
+            <div class="leader-role">अध्यक्ष</div>
+            <div class="leader-name">सॅम भाऊ</div>
+            <div class="leader-note">मंडळाचे मुख्य नेतृत्व आणि मार्गदर्शन.</div>
+          </div>
+          <div class="leader-card">
+            <div class="leader-role">उपाध्यक्ष</div>
+            <div class="leader-name">प्रशांत भाऊ</div>
+            <div class="leader-note">उपक्रमात सक्रिय सहभाग आणि समन्वय.</div>
+          </div>
+        </div>
       </section>
 
       <!-- ACTIVITIES / EVENTS -->
-      <section class="card animate delay-3" id="activities">
+      <section class="card reveal-on-scroll delay-3" id="activities">
         <h2 class="section-heading">उपक्रम</h2>
         <p class="section-sub">आम्ही काय काय करतो?</p>
 
@@ -582,7 +706,7 @@
             <div class="event-title">रक्तदान शिबीर / सोशल उपक्रम</div>
             <p class="event-text">
               वेळोवेळी रक्तदान शिबीर, वृक्षारोपण, गरजू विद्यार्थ्यांना मदत,
-              आणि परिसर स्वच्छता अशा उपक्रमांमधून समाजासाठी थोडसं का होईना योगदान देण्याचा प्रयत्न.
+              आणि परिसर स्वच्छता अशा उपक्रमांमधून समाजासाठी थोडंसं का होईना योगदान देण्याचा प्रयत्न.
             </p>
           </div>
 
@@ -598,7 +722,7 @@
     </div>
 
     <!-- GALLERY -->
-    <section class="card animate delay-3" id="gallery" style="margin-top: 16px;">
+    <section class="card reveal-on-scroll delay-3" id="gallery" style="margin-top: 16px;">
       <h2 class="section-heading">फोटो गॅलरी</h2>
       <p class="section-sub">उत्सव, खेळ, सहली – सगळ्या आठवणी एकाच ठिकाणी</p>
 
@@ -608,15 +732,15 @@
       </p>
 
       <div class="gallery">
-        <div class="photo-box">गणेशोत्सव फोटो (लवकरच)</div>
-        <div class="photo-box">क्रिकेट स्पर्धा फोटो (लवकरच)</div>
-        <div class="photo-box">ट्रीप / सहल फोटो (लवकरच)</div>
-        <div class="photo-box">विशेष कार्यक्रम (लवकरच)</div>
+        <div class="photo-box reveal-on-scroll">गणेशोत्सव फोटो (लवकरच)</div>
+        <div class="photo-box reveal-on-scroll delay-1">क्रिकेट स्पर्धा फोटो (लवकरच)</div>
+        <div class="photo-box reveal-on-scroll delay-2">ट्रीप / सहल फोटो (लवकरच)</div>
+        <div class="photo-box reveal-on-scroll delay-3">विशेष कार्यक्रम (लवकरच)</div>
       </div>
     </section>
 
     <!-- CONTACT -->
-    <section class="card animate delay-4" id="contact" style="margin-top: 16px;">
+    <section class="card reveal-on-scroll delay-4" id="contact" style="margin-top: 16px;">
       <h2 class="section-heading">Contact / संपर्क</h2>
       <p class="section-sub">ग्रुपमध्ये join व्हायचंय? काही सुचना आहेत?</p>
 
@@ -632,7 +756,7 @@
           <div class="contact-label">मोबाईल</div>
           <div class="contact-value">
             <!-- इथे नंबर टाक -->
-            <span>Sam Bhau / Admin: 9XXXXXXXXX</span>
+            <span>अध्यक्ष सॅम भाऊ: 9XXXXXXXXX</span>
           </div>
         </div>
       </div>
@@ -669,8 +793,57 @@
     </footer>
   </main>
 
+  <!-- Back to top button -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <span>⬆</span>
+    वर जा
+  </button>
+
   <script>
+    // Footer year
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Scroll reveal using IntersectionObserver
+    const revealEls = document.querySelectorAll(".reveal-on-scroll");
+    const observer = new IntersectionObserver(
+      (entries, obs) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("in-view");
+            obs.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+    revealEls.forEach((el) => observer.observe(el));
+
+    // Smooth scroll with header offset for nav links
+    const headerOffset = 80; // approx. header height
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+      anchor.addEventListener("click", (e) => {
+        const id = anchor.getAttribute("href").slice(1);
+        const target = document.getElementById(id);
+        if (!target) return;
+        e.preventDefault();
+        const y = target.getBoundingClientRect().top + window.scrollY - headerOffset;
+        window.scrollTo({ top: y, behavior: "smooth" });
+      });
+    });
+
+    // Back to top button visibility + action
+    const backToTopBtn = document.getElementById("backToTop");
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 220) {
+        backToTopBtn.classList.add("show");
+      } else {
+        backToTopBtn.classList.remove("show");
+      }
+    });
+
+    backToTopBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
   </script>
 </body>
 </html>
