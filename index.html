@@ -13,6 +13,10 @@
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       background: #050816;
       color: #e5e7eb;
@@ -29,6 +33,47 @@
       margin: 0 auto;
       padding: 16px 14px 40px;
     }
+
+    /* ANIMATIONS */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(16px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes floatSoft {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-3px);
+      }
+    }
+
+    @keyframes glowPulse {
+      0%, 100% {
+        box-shadow: 0 0 12px rgba(250, 204, 21, 0.5);
+      }
+      50% {
+        box-shadow: 0 0 20px rgba(248, 113, 113, 0.9);
+      }
+    }
+
+    .animate {
+      opacity: 0;
+      transform: translateY(16px);
+      animation: fadeUp 0.8s ease-out forwards;
+    }
+
+    .delay-1 { animation-delay: 0.15s; }
+    .delay-2 { animation-delay: 0.30s; }
+    .delay-3 { animation-delay: 0.45s; }
+    .delay-4 { animation-delay: 0.60s; }
 
     /* HEADER / NAV */
     header {
@@ -67,9 +112,9 @@
       justify-content: center;
       color: #0b1120;
       font-weight: 800;
-      box-shadow: 0 8px 28px rgba(0,0,0,0.65);
       border: 2px solid rgba(248,250,252,0.85);
       font-size: 14px;
+      animation: floatSoft 3s ease-in-out infinite, glowPulse 2.6s ease-in-out infinite;
     }
 
     .logo-text-main {
@@ -101,6 +146,7 @@
       border-color: rgba(148,163,184,0.6);
       color: #e5e7eb;
       background: rgba(15,23,42,0.95);
+      transform: translateY(-1px);
     }
 
     .nav-links .primary {
@@ -190,12 +236,18 @@
       border: 1px solid rgba(55,65,81,0.9);
       background: rgba(15,23,42,0.9);
       color: #9ca3af;
+      transition: 160ms;
     }
 
     .meta-pill.highlight {
       border-color: rgba(250,204,21,0.7);
       background: rgba(120,53,15,0.8);
       color: #fef9c3;
+    }
+
+    .meta-pill:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(15,23,42,0.9);
     }
 
     /* GRID LAYOUT */
@@ -218,6 +270,14 @@
       padding: 16px 16px 18px;
       border: 1px solid rgba(31,41,55,0.9);
       box-shadow: 0 16px 40px rgba(15,23,42,0.95);
+      transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease, background 200ms ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 55px rgba(15,23,42,0.98);
+      border-color: rgba(250,204,21,0.7);
+      background: radial-gradient(circle at top, #020617, #111827);
     }
 
     .section-heading {
@@ -270,6 +330,13 @@
       border-radius: 14px;
       border: 1px solid rgba(55,65,81,0.9);
       background: rgba(15,23,42,0.96);
+      transition: transform 180ms, box-shadow 180ms, border-color 180ms;
+    }
+
+    .badge:hover {
+      transform: translateY(-3px);
+      border-color: rgba(59,130,246,0.7);
+      box-shadow: 0 12px 28px rgba(15,23,42,0.95);
     }
 
     .badge-title {
@@ -295,6 +362,14 @@
       border-radius: 12px;
       border: 1px solid rgba(55,65,81,0.9);
       background: rgba(15,23,42,0.96);
+      transition: transform 180ms, box-shadow 180ms, border-color 180ms, background 180ms;
+    }
+
+    .event:hover {
+      transform: translateY(-3px);
+      border-color: rgba(250,204,21,0.7);
+      background: rgba(24,35,58,0.96);
+      box-shadow: 0 14px 30px rgba(15,23,42,0.95);
     }
 
     .event-title {
@@ -336,6 +411,15 @@
       font-size: 11px;
       color: #9ca3af;
       background: rgba(15,23,42,0.9);
+      transition: transform 180ms, box-shadow 180ms, border-color 180ms, background 180ms;
+    }
+
+    .photo-box:hover {
+      transform: translateY(-3px) scale(1.02);
+      border-style: solid;
+      border-color: rgba(59,130,246,0.7);
+      background: rgba(15,23,42,0.98);
+      box-shadow: 0 14px 30px rgba(15,23,42,0.9);
     }
 
     /* CONTACT */
@@ -350,6 +434,14 @@
       gap: 8px;
       align-items: center;
       margin-bottom: 6px;
+      transition: transform 180ms, box-shadow 180ms, border-color 180ms, background 180ms;
+    }
+
+    .contact-item:hover {
+      transform: translateY(-2px);
+      border-color: rgba(96,165,250,0.8);
+      background: rgba(15,23,42,0.98);
+      box-shadow: 0 10px 26px rgba(15,23,42,0.95);
     }
 
     .contact-label {
@@ -402,7 +494,7 @@
 
   <main class="page">
     <!-- HERO / HOME -->
-    <section class="hero" id="home">
+    <section class="hero animate delay-1" id="home">
       <div class="hero-tag">
         <div class="hero-dot">★</div>
         <span>मैत्री • समाजसेवा • उत्सव</span>
@@ -425,7 +517,7 @@
 
     <div class="grid">
       <!-- ABOUT / GOAL -->
-      <section class="card" id="about">
+      <section class="card animate delay-2" id="about">
         <h2 class="section-heading">आमच्याबद्दल</h2>
         <p class="section-sub">कोण आहोत आणि काय करतो?</p>
 
@@ -462,7 +554,7 @@
       </section>
 
       <!-- ACTIVITIES / EVENTS -->
-      <section class="card" id="activities">
+      <section class="card animate delay-3" id="activities">
         <h2 class="section-heading">उपक्रम</h2>
         <p class="section-sub">आम्ही काय काय करतो?</p>
 
@@ -506,7 +598,7 @@
     </div>
 
     <!-- GALLERY -->
-    <section class="card" id="gallery" style="margin-top: 16px;">
+    <section class="card animate delay-3" id="gallery" style="margin-top: 16px;">
       <h2 class="section-heading">फोटो गॅलरी</h2>
       <p class="section-sub">उत्सव, खेळ, सहली – सगळ्या आठवणी एकाच ठिकाणी</p>
 
@@ -524,7 +616,7 @@
     </section>
 
     <!-- CONTACT -->
-    <section class="card" id="contact" style="margin-top: 16px;">
+    <section class="card animate delay-4" id="contact" style="margin-top: 16px;">
       <h2 class="section-heading">Contact / संपर्क</h2>
       <p class="section-sub">ग्रुपमध्ये join व्हायचंय? काही सुचना आहेत?</p>
 
@@ -582,4 +674,5 @@
   </script>
 </body>
 </html>
+
 
