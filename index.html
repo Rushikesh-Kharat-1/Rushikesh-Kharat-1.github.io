@@ -1,39 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="mr">
 <head>
   <meta charset="UTF-8" />
-  <title>Your Name | Portfolio</title>
+  <title>सॅम भाऊ खांबट मित्र मंडळ, डांगे चौक</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Portfolio of Your Name - Developer | Designer" />
+  <meta name="description" content="सॅम भाऊ खांबट मित्र मंडळ, डांगे चौक - मैत्री, समाजसेवा आणि उत्सव यांचं अनोखं मित्रमंडळ" />
   <style>
-    :root {
-      --bg: #0f172a;
-      --bg-alt: #020617;
-      --card: #020617;
-      --accent: #38bdf8;
-      --accent-soft: rgba(56, 189, 248, 0.15);
-      --text: #e5e7eb;
-      --muted: #9ca3af;
-      --border: #1f2937;
-      --radius-lg: 18px;
-      --radius-full: 999px;
-      --shadow-soft: 0 18px 60px rgba(15, 23, 42, 0.9);
-      --shadow-chip: 0 8px 30px rgba(15, 23, 42, 0.9);
-      --transition: 200ms ease;
-    }
-
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
 
     body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #1f2937 0, #020617 40%, #000 100%);
-      color: var(--text);
+      background: #050816;
+      color: #e5e7eb;
       line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
     }
 
     a {
@@ -42,524 +25,338 @@
     }
 
     .page {
-      max-width: 1040px;
+      max-width: 1080px;
       margin: 0 auto;
-      padding: 24px 16px 48px;
+      padding: 16px 14px 40px;
     }
 
-    /* NAVBAR */
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 24px;
+    /* HEADER / NAV */
+    header {
       position: sticky;
       top: 0;
       z-index: 50;
-      padding: 10px 12px;
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      background: linear-gradient(
-        to bottom,
-        rgba(15, 23, 42, 0.9),
-        rgba(15, 23, 42, 0.65),
-        transparent
-      );
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.25);
+      background: linear-gradient(to bottom, rgba(15,23,42,0.98), rgba(15,23,42,0.8), transparent);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(148,163,184,0.3);
+      margin-bottom: 16px;
     }
 
-    .nav-left {
+    .nav-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .logo-wrap {
       display: flex;
       align-items: center;
       gap: 10px;
     }
 
-    .nav-avatar {
-      width: 34px;
-      height: 34px;
+    .logo-circle {
+      width: 38px;
+      height: 38px;
       border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: radial-gradient(circle at 30% 20%, #facc15, #ef4444, #7c2d12);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-weight: 600;
-      font-size: 16px;
-      background: radial-gradient(circle at 0 0, #38bdf8 0, #0f172a 45%, #020617 100%);
-      box-shadow: var(--shadow-chip);
-    }
-
-    .nav-name {
+      color: #0b1120;
+      font-weight: 800;
+      box-shadow: 0 8px 28px rgba(0,0,0,0.65);
+      border: 2px solid rgba(248,250,252,0.85);
       font-size: 14px;
-      font-weight: 600;
     }
 
-    .nav-tag {
-      font-size: 12px;
-      color: var(--muted);
+    .logo-text-main {
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .logo-text-sub {
+      font-size: 11px;
+      color: #9ca3af;
     }
 
     .nav-links {
       display: flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 13px;
+      gap: 8px;
+      font-size: 12px;
     }
 
     .nav-links a {
-      padding: 6px 12px;
+      padding: 6px 10px;
       border-radius: 999px;
       border: 1px solid transparent;
-      color: var(--muted);
+      color: #9ca3af;
+      transition: 150ms;
       cursor: pointer;
-      transition: background var(--transition), border-color var(--transition), color var(--transition), transform var(--transition);
     }
 
     .nav-links a:hover {
-      background: rgba(15, 23, 42, 0.9);
-      border-color: rgba(148, 163, 184, 0.4);
-      color: var(--text);
-      transform: translateY(-1px);
+      border-color: rgba(148,163,184,0.6);
+      color: #e5e7eb;
+      background: rgba(15,23,42,0.95);
     }
 
-    .nav-links .primary-link {
-      background: linear-gradient(135deg, #38bdf8, #22c55e);
-      color: #0b1120;
+    .nav-links .primary {
+      background: linear-gradient(135deg, #f97316, #facc15);
+      color: #111827;
       font-weight: 600;
-      border: none;
-      box-shadow: 0 10px 40px rgba(56, 189, 248, 0.35);
+      box-shadow: 0 10px 35px rgba(248,181,21,0.55);
     }
 
-    .nav-links .primary-link:hover {
-      transform: translateY(-1px) scale(1.01);
-      box-shadow: 0 14px 50px rgba(56, 189, 248, 0.5);
-    }
-
-    /* LAYOUT GRID */
-    .layout {
-      display: grid;
-      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
-      gap: 18px;
-      margin-top: 8px;
-    }
-
-    @media (max-width: 860px) {
-      .layout {
-        grid-template-columns: minmax(0, 1fr);
-      }
-
-      .nav {
-        border-radius: 18px;
-      }
-
+    @media (max-width: 720px) {
       .nav-links {
         display: none;
       }
+      .page {
+        padding-inline: 12px;
+      }
     }
 
-    /* CARD BASE */
-    .card {
-      background: radial-gradient(circle at top, #0b1120, #020617);
-      border-radius: var(--radius-lg);
-      border: 1px solid rgba(148, 163, 184, 0.25);
-      box-shadow: var(--shadow-soft);
+    /* HERO SECTION */
+    .hero {
+      margin-top: 20px;
+      background: radial-gradient(circle at top, #111827, #020617);
+      border-radius: 20px;
       padding: 18px 18px 20px;
-      position: relative;
-      overflow: hidden;
+      border: 1px solid rgba(148,163,184,0.3);
+      box-shadow: 0 18px 50px rgba(15,23,42,0.9);
     }
 
-    .card::before {
-      content: "";
-      position: absolute;
-      inset: -40%;
-      background:
-        radial-gradient(circle at top left, rgba(56, 189, 248, 0.22), transparent 60%),
-        radial-gradient(circle at 80% 120%, rgba(129, 140, 248, 0.16), transparent 55%);
-      opacity: 0.7;
-      pointer-events: none;
-      z-index: -1;
-    }
-
-    /* HERO */
-    .hero-label {
+    .hero-tag {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 4px 10px 4px 4px;
+      padding: 4px 10px 4px 6px;
       border-radius: 999px;
-      background: rgba(15, 23, 42, 0.95);
-      border: 1px solid rgba(148, 163, 184, 0.4);
-      margin-bottom: 14px;
+      background: rgba(15,23,42,0.95);
+      border: 1px solid rgba(248,250,252,0.2);
+      margin-bottom: 10px;
       font-size: 11px;
-      color: var(--muted);
+      color: #e5e7eb;
     }
 
-    .pill-dot {
-      width: 20px;
-      height: 20px;
+    .hero-dot {
+      width: 18px;
+      height: 18px;
       border-radius: 999px;
-      background: radial-gradient(circle at 30% 20%, #f9fafb, #22c55e 40%, #166534 100%);
+      background: radial-gradient(circle, #facc15, #ef4444);
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 0 18px rgba(34, 197, 94, 0.8);
-      color: #0b1120;
-      font-size: 13px;
-      font-weight: 700;
-    }
-
-    .pill-badge {
-      padding: 2px 8px;
-      border-radius: 999px;
-      background: rgba(22, 163, 74, 0.12);
-      color: #bbf7d0;
-      border: 1px solid rgba(34, 197, 94, 0.4);
       font-size: 11px;
-      font-weight: 500;
+      box-shadow: 0 0 16px rgba(239,68,68,0.8);
     }
 
     .hero-title {
-      font-size: clamp(28px, 4vw, 34px);
-      line-height: 1.2;
-      font-weight: 650;
-      letter-spacing: -0.02em;
-      margin-bottom: 10px;
+      font-size: clamp(24px, 4vw, 30px);
+      line-height: 1.3;
+      margin-bottom: 8px;
     }
 
     .hero-title span {
-      background: linear-gradient(135deg, #38bdf8, #a855f7, #22c55e);
-      -webkit-background-clip: text;
-      color: transparent;
+      display: block;
+      font-size: clamp(18px, 3vw, 22px);
+      color: #fde68a;
     }
 
     .hero-subtitle {
-      font-size: 14px;
-      color: var(--muted);
-      max-width: 36rem;
-      margin-bottom: 18px;
+      font-size: 13px;
+      color: #d1d5db;
+      margin-bottom: 14px;
     }
 
     .hero-subtitle strong {
-      color: #e5e7eb;
-      font-weight: 500;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 18px;
-    }
-
-    .btn {
-      border-radius: var(--radius-full);
-      padding: 9px 16px;
-      font-size: 13px;
-      font-weight: 500;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      border: 1px solid rgba(148, 163, 184, 0.5);
-      background: rgba(15, 23, 42, 0.9);
-      cursor: pointer;
-      transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition), background var(--transition);
-    }
-
-    .btn:hover {
-      transform: translateY(-1px);
-      border-color: rgba(248, 250, 252, 0.7);
-      box-shadow: 0 12px 35px rgba(15, 23, 42, 0.9);
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, #38bdf8, #22c55e);
-      color: #020617;
-      border: none;
-      box-shadow: 0 14px 45px rgba(56, 189, 248, 0.45);
-    }
-
-    .btn-primary:hover {
-      box-shadow: 0 18px 60px rgba(56, 189, 248, 0.65);
-    }
-
-    .btn-icon {
-      font-size: 16px;
+      color: #fed7aa;
     }
 
     .hero-meta {
       display: flex;
       flex-wrap: wrap;
-      gap: 14px;
+      gap: 8px;
       font-size: 11px;
-      color: var(--muted);
-      margin-top: 6px;
-    }
-
-    .hero-meta-item {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 6px 10px;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.9);
-      border: 1px solid rgba(148, 163, 184, 0.4);
-    }
-
-    .hero-meta-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 999px;
-      background: #22c55e;
-      box-shadow: 0 0 10px rgba(34, 197, 94, 0.9);
-    }
-
-    /* SECONDARY COLUMN */
-    .side-card {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .section-label {
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: var(--muted);
       margin-bottom: 4px;
     }
 
-    .mini-card {
-      padding: 12px 14px;
-      border-radius: 14px;
-      border: 1px solid rgba(148, 163, 184, 0.25);
-      background: radial-gradient(circle at top, rgba(15, 23, 42, 0.9), #020617);
-      font-size: 12px;
-      display: flex;
-      justify-content: space-between;
-      gap: 10px;
-      align-items: center;
-    }
-
-    .mini-card strong {
-      display: block;
-      font-size: 13px;
-      margin-bottom: 2px;
-    }
-
-    .mini-chip-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-top: 6px;
-    }
-
-    .chip {
-      font-size: 10px;
-      padding: 4px 8px;
+    .meta-pill {
+      padding: 5px 9px;
       border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.3);
-      background: rgba(15, 23, 42, 0.8);
-      color: var(--muted);
+      border: 1px solid rgba(55,65,81,0.9);
+      background: rgba(15,23,42,0.9);
+      color: #9ca3af;
     }
 
-    .chip-highlight {
-      border-color: rgba(56, 189, 248, 0.6);
-      background: rgba(56, 189, 248, 0.1);
-      color: #e0f2fe;
+    .meta-pill.highlight {
+      border-color: rgba(250,204,21,0.7);
+      background: rgba(120,53,15,0.8);
+      color: #fef9c3;
     }
 
-    .stat-badge {
-      font-size: 11px;
-      padding: 6px 9px;
-      border-radius: 999px;
-      border: 1px solid rgba(56, 189, 248, 0.4);
-      background: rgba(8, 47, 73, 0.8);
-      color: #e0f2fe;
-      min-width: 82px;
-      text-align: center;
-    }
-
-    /* SECTIONS */
-    .sections {
-      margin-top: 22px;
+    /* GRID LAYOUT */
+    .grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
-      gap: 18px;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 16px;
+      margin-top: 18px;
     }
 
     @media (max-width: 860px) {
-      .sections {
+      .grid {
         grid-template-columns: minmax(0, 1fr);
       }
     }
 
-    .section-card {
+    .card {
       background: radial-gradient(circle at top, #020617, #020617);
-      border-radius: var(--radius-lg);
-      border: 1px solid rgba(148, 163, 184, 0.25);
-      box-shadow: var(--shadow-soft);
-      padding: 16px 18px 18px;
-      position: relative;
-      overflow: hidden;
+      border-radius: 18px;
+      padding: 16px 16px 18px;
+      border: 1px solid rgba(31,41,55,0.9);
+      box-shadow: 0 16px 40px rgba(15,23,42,0.95);
     }
 
-    .section-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      margin-bottom: 10px;
-      gap: 10px;
-    }
-
-    .section-title {
-      font-size: 14px;
+    .section-heading {
+      font-size: 13px;
       text-transform: uppercase;
       letter-spacing: 0.16em;
-      color: var(--muted);
-    }
-
-    .section-subtitle {
-      font-size: 11px;
-      color: var(--muted);
-    }
-
-    /* ABOUT */
-    .about-text {
-      font-size: 13px;
-      color: var(--muted);
-      margin-bottom: 12px;
-    }
-
-    .about-text strong {
-      color: #e5e7eb;
-      font-weight: 500;
-    }
-
-    /* SKILLS */
-    .skill-groups {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
-      margin-top: 8px;
-    }
-
-    @media (max-width: 640px) {
-      .skill-groups {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
-
-    .skill-group-title {
-      font-size: 12px;
-      font-weight: 600;
-      margin-bottom: 4px;
-    }
-
-    .skill-chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-    }
-
-    .skill-chip {
-      padding: 4px 8px;
-      font-size: 11px;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.35);
-      background: rgba(15, 23, 42, 0.9);
-      color: var(--muted);
-    }
-
-    /* PROJECTS */
-    .project-list {
-      display: grid;
-      gap: 10px;
-      margin-top: 4px;
-    }
-
-    .project {
-      padding: 10px 11px;
-      border-radius: 12px;
-      border: 1px solid rgba(148, 163, 184, 0.25);
-      background: rgba(15, 23, 42, 0.9);
-      transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition), background var(--transition);
-      cursor: pointer;
-    }
-
-    .project:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 12px 35px rgba(15, 23, 42, 0.95);
-      border-color: rgba(56, 189, 248, 0.6);
-      background: rgba(15, 23, 42, 0.95);
-    }
-
-    .project-top {
-      display: flex;
-      justify-content: space-between;
-      gap: 8px;
-      align-items: center;
-      margin-bottom: 4px;
-    }
-
-    .project-name {
-      font-size: 13px;
-      font-weight: 600;
-    }
-
-    .project-tag {
-      font-size: 10px;
-      padding: 3px 7px;
-      border-radius: 999px;
-      border: 1px solid rgba(56, 189, 248, 0.5);
-      color: #e0f2fe;
-      background: rgba(8, 47, 73, 0.9);
-    }
-
-    .project-desc {
-      font-size: 12px;
-      color: var(--muted);
+      color: #9ca3af;
       margin-bottom: 6px;
     }
 
-    .project-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      font-size: 10px;
-      color: var(--muted);
+    .section-sub {
+      font-size: 11px;
+      color: #6b7280;
+      margin-bottom: 10px;
     }
 
-    .project-meta span {
-      padding: 3px 7px;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.9);
-      border: 1px solid rgba(31, 41, 55, 0.8);
+    .para {
+      font-size: 13px;
+      color: #e5e7eb;
+      margin-bottom: 10px;
     }
 
-    /* CONTACT / FOOTER */
-    .contact-list {
+    .para.muted {
+      color: #9ca3af;
+      font-size: 12px;
+    }
+
+    .list {
+      font-size: 13px;
+      margin-left: 16px;
+      margin-bottom: 10px;
+      color: #e5e7eb;
+    }
+
+    .list li {
+      margin-bottom: 4px;
+    }
+
+    /* HIGHLIGHT ROW */
+    .highlight-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .badge {
+      font-size: 12px;
+      padding: 8px 10px;
+      border-radius: 14px;
+      border: 1px solid rgba(55,65,81,0.9);
+      background: rgba(15,23,42,0.96);
+    }
+
+    .badge-title {
+      font-weight: 600;
+      margin-bottom: 2px;
+      font-size: 12px;
+    }
+
+    .badge-text {
+      font-size: 11px;
+      color: #9ca3af;
+    }
+
+    /* EVENTS / ACTIVITIES */
+    .event-list {
       display: grid;
       gap: 8px;
       font-size: 13px;
-      margin-top: 6px;
     }
 
+    .event {
+      padding: 8px 9px;
+      border-radius: 12px;
+      border: 1px solid rgba(55,65,81,0.9);
+      background: rgba(15,23,42,0.96);
+    }
+
+    .event-title {
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .event-tag {
+      font-size: 10px;
+      display: inline-block;
+      padding: 2px 7px;
+      border-radius: 999px;
+      border: 1px solid rgba(250,204,21,0.7);
+      color: #fef9c3;
+      margin-bottom: 4px;
+    }
+
+    .event-text {
+      font-size: 12px;
+      color: #d1d5db;
+    }
+
+    /* GALLERY PLACEHOLDER */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .photo-box {
+      height: 90px;
+      border-radius: 14px;
+      border: 1px dashed rgba(148,163,184,0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      color: #9ca3af;
+      background: rgba(15,23,42,0.9);
+    }
+
+    /* CONTACT */
     .contact-item {
+      padding: 8px 9px;
+      border-radius: 12px;
+      border: 1px solid rgba(55,65,81,0.9);
+      background: rgba(15,23,42,0.96);
+      font-size: 13px;
       display: flex;
       justify-content: space-between;
-      gap: 10px;
+      gap: 8px;
       align-items: center;
-      padding: 8px 10px;
-      border-radius: 12px;
-      border: 1px dashed rgba(148, 163, 184, 0.4);
-      background: rgba(15, 23, 42, 0.8);
+      margin-bottom: 6px;
     }
 
     .contact-label {
-      color: var(--muted);
       font-size: 11px;
       text-transform: uppercase;
       letter-spacing: 0.14em;
+      color: #9ca3af;
     }
 
     .contact-value {
@@ -567,301 +364,222 @@
     }
 
     .contact-value a {
-      color: #e0f2fe;
+      color: #bfdbfe;
     }
 
-    .social-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 8px;
-    }
-
-    .social-pill {
-      font-size: 12px;
-      padding: 6px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.4);
-      background: rgba(15, 23, 42, 0.9);
-    }
-
-    .social-pill span {
+    /* FOOTER */
+    footer {
+      margin-top: 18px;
       font-size: 11px;
-      color: var(--muted);
-    }
-
-    .footer {
-      margin-top: 14px;
-      font-size: 11px;
-      color: var(--muted);
       text-align: center;
+      color: #6b7280;
     }
 
-    .footer span {
+    footer span {
       color: #e5e7eb;
     }
   </style>
 </head>
 <body>
-  <div class="page">
-    <!-- NAVBAR -->
-    <header class="nav">
-      <div class="nav-left">
-        <div class="nav-avatar">YK</div>
+  <header>
+    <div class="nav-inner">
+      <div class="logo-wrap">
+        <div class="logo-circle">SB</div>
         <div>
-          <div class="nav-name">Your Name</div>
-          <div class="nav-tag">Frontend Developer</div>
+          <div class="logo-text-main">सॅम भाऊ खांबट मित्र मंडळ</div>
+          <div class="logo-text-sub">डांगे चौक, पुणे</div>
         </div>
       </div>
       <nav class="nav-links">
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
-        <a href="#contact" class="primary-link">Contact</a>
+        <a href="#home">होम</a>
+        <a href="#about">आमच्याबद्दल</a>
+        <a href="#activities">उपक्रम</a>
+        <a href="#gallery">फोटो</a>
+        <a href="#contact" class="primary">Contact</a>
       </nav>
-    </header>
+    </div>
+  </header>
 
-    <main>
-      <div class="layout">
-        <!-- HERO / INTRO -->
-        <section class="card" id="about">
-          <div class="hero-label">
-            <div class="pill-dot">★</div>
-            <span>Available for freelance & full-time</span>
-            <span class="pill-badge">Based in India</span>
-          </div>
-
-          <h1 class="hero-title">
-            Hi, I’m <span>Your Name</span> — I build clean, fast and modern web experiences.
-          </h1>
-
-          <p class="hero-subtitle">
-            I’m a <strong>frontend developer</strong> with a focus on creating
-            responsive, user-friendly interfaces using HTML, CSS, JavaScript, and modern frameworks.
-          </p>
-
-          <div class="hero-actions">
-            <a href="mailto:youremail@example.com" class="btn btn-primary">
-              <span class="btn-icon">✉️</span>
-              <span>Hire Me</span>
-            </a>
-            <a href="#projects" class="btn">
-              <span class="btn-icon">👀</span>
-              <span>View My Projects</span>
-            </a>
-          </div>
-
-          <div class="hero-meta">
-            <div class="hero-meta-item">
-              <div class="hero-meta-dot"></div>
-              <span>Open to remote & onsite roles</span>
-            </div>
-            <div class="hero-meta-item">
-              <span>⚡ 2+ personal projects</span>
-            </div>
-            <div class="hero-meta-item">
-              <span>💼 Portfolio built with HTML/CSS</span>
-            </div>
-          </div>
-        </section>
-
-        <!-- SIDE INFO -->
-        <aside class="side-card">
-          <div>
-            <div class="section-label">Current Focus</div>
-            <div class="mini-card">
-              <div>
-                <strong>Improving frontend skills</strong>
-                <div>Building small projects to master layouts, components, and animations.</div>
-                <div class="mini-chip-row">
-                  <span class="chip chip-highlight">HTML & CSS</span>
-                  <span class="chip">JavaScript</span>
-                  <span class="chip">Responsive Design</span>
-                </div>
-              </div>
-              <div class="stat-badge">
-                Learning Mode<br />🔥 Everyday
-              </div>
-            </div>
-          </div>
-
-          <div>
-            <div class="section-label">Quick Snapshot</div>
-            <div class="mini-card">
-              <div>
-                <strong>What I enjoy</strong>
-                <div>Clean UI, smooth interactions, and performance-first websites.</div>
-              </div>
-            </div>
-          </div>
-        </aside>
+  <main class="page">
+    <!-- HERO / HOME -->
+    <section class="hero" id="home">
+      <div class="hero-tag">
+        <div class="hero-dot">★</div>
+        <span>मैत्री • समाजसेवा • उत्सव</span>
       </div>
-
-      <!-- MAIN SECTIONS -->
-      <div class="sections">
-        <!-- ABOUT + SKILLS -->
-        <section class="section-card" id="skills">
-          <div class="section-header">
-            <h2 class="section-title">About & Skills</h2>
-            <p class="section-subtitle">Who I am & what I work with</p>
-          </div>
-
-          <p class="about-text">
-            I’m a self-driven developer who loves turning ideas into interactive web experiences.
-            I enjoy working across the full frontend stack — from layouts and components to
-            bringing everything alive with animations and interactions.
-          </p>
-
-          <p class="about-text">
-            When I’m not coding, I like exploring new tools, reading about design systems,
-            and improving my problem-solving skills.
-          </p>
-
-          <div class="skill-groups">
-            <div>
-              <div class="skill-group-title">Core Skills</div>
-              <div class="skill-chips">
-                <span class="skill-chip">HTML5</span>
-                <span class="skill-chip">CSS3 / Flexbox / Grid</span>
-                <span class="skill-chip">Responsive Design</span>
-                <span class="skill-chip">JavaScript (Basic/Intermediate)</span>
-              </div>
-            </div>
-            <div>
-              <div class="skill-group-title">Tools & Extras</div>
-              <div class="skill-chips">
-                <span class="skill-chip">Git & GitHub</span>
-                <span class="skill-chip">VS Code</span>
-                <span class="skill-chip">Chrome DevTools</span>
-                <span class="skill-chip">Figma (Basic)</span>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- PROJECTS -->
-        <section class="section-card" id="projects">
-          <div class="section-header">
-            <h2 class="section-title">Projects</h2>
-            <p class="section-subtitle">A few things I’ve built</p>
-          </div>
-
-          <div class="project-list">
-            <a class="project" href="https://github.com/yourusername/project-1" target="_blank" rel="noreferrer">
-              <div class="project-top">
-                <div class="project-name">Personal Portfolio Website</div>
-                <div class="project-tag">Featured</div>
-              </div>
-              <p class="project-desc">
-                A responsive, multi-section portfolio to showcase my skills, projects, and contact details.
-              </p>
-              <div class="project-meta">
-                <span>HTML</span>
-                <span>CSS</span>
-                <span>Responsive</span>
-              </div>
-            </a>
-
-            <a class="project" href="https://github.com/yourusername/project-2" target="_blank" rel="noreferrer">
-              <div class="project-top">
-                <div class="project-name">Landing Page UI</div>
-                <div class="project-tag">UI Practice</div>
-              </div>
-              <p class="project-desc">
-                A clean landing page for a fictional product, focusing on layout, spacing, and typography.
-              </p>
-              <div class="project-meta">
-                <span>HTML</span>
-                <span>CSS</span>
-                <span>Flexbox</span>
-              </div>
-            </a>
-
-            <a class="project" href="https://github.com/yourusername/project-3" target="_blank" rel="noreferrer">
-              <div class="project-top">
-                <div class="project-name">Small JS Utility</div>
-                <div class="project-tag">JavaScript</div>
-              </div>
-              <p class="project-desc">
-                A simple JavaScript project (like a calculator, todo app, or weather card) to sharpen logic skills.
-              </p>
-              <div class="project-meta">
-                <span>JavaScript</span>
-                <span>DOM</span>
-              </div>
-            </a>
-          </div>
-        </section>
+      <h1 class="hero-title">
+        सॅम भाऊ खांबट मित्र मंडळ, डांगे चौक  
+        <span>मित्रांसोबत आनंद, परिसरासाठी काम.</span>
+      </h1>
+      <p class="hero-subtitle">
+        आमचं मंडळ हे फक्त <strong>मित्रांचं ग्रुप</strong> नाही, तर
+        डांगे चौक परिसरात एकत्र येऊन <strong>समाजासाठी काहीतरी वेगळं करणारी टीम</strong> आहे.
+        उत्सव, सामाजिक उपक्रम, खेळ, आणि धमाल – सगळं इथेच!
+      </p>
+      <div class="hero-meta">
+        <div class="meta-pill highlight">📍 डांगे चौक, पुणे</div>
+        <div class="meta-pill">🎉 गणेशोत्सव, क्रिकेट स्पर्धा, सहली</div>
+        <div class="meta-pill">🤝 नवीन मित्रांचे स्वागत आहे</div>
       </div>
+    </section>
 
-      <!-- CONTACT -->
-      <section class="section-card" id="contact" style="margin-top: 18px;">
-        <div class="section-header">
-          <h2 class="section-title">Contact</h2>
-          <p class="section-subtitle">Let’s work together or just say hi</p>
-        </div>
+    <div class="grid">
+      <!-- ABOUT / GOAL -->
+      <section class="card" id="about">
+        <h2 class="section-heading">आमच्याबद्दल</h2>
+        <p class="section-sub">कोण आहोत आणि काय करतो?</p>
 
-        <div class="contact-list">
-          <div class="contact-item">
-            <div>
-              <div class="contact-label">Email</div>
-              <div class="contact-value">
-                <a href="mailto:youremail@example.com">youremail@example.com</a>
-              </div>
+        <p class="para">
+          <strong>सॅम भाऊ खांबट मित्र मंडळ, डांगे चौक</strong> हा परिसरातील तरुण मित्रांना
+          एकत्र आणण्याचा एक छोटासा पण मनापासून केलेला प्रयत्न आहे.
+          इथे आम्ही एकत्र बसतो, हसतो, भांडतो, पुन्हा मिळतो – आणि या सगळ्यातून
+          <strong>खरी मैत्री</strong> मजबूत करत राहतो.
+        </p>
+
+        <p class="para">
+          आमचं मुख्य उद्दिष्ट म्हणजे –
+        </p>
+        <ul class="list">
+          <li>समाजासाठी उपयोगी ठरणारे उपक्रम राबवणे</li>
+          <li>पुण्यातल्या सण-उत्सवांना एक वेगळी, सकारात्मक ओळख देणे</li>
+          <li>मित्रांमध्ये एकोप्या आणि आनंदाचं वातावरण तयार ठेवणे</li>
+        </ul>
+
+        <div class="highlight-row">
+          <div class="badge">
+            <div class="badge-title">आपला ग्रुप, आपली ओळख</div>
+            <div class="badge-text">
+              डांगे चौक परिसरात ओळखलं जाणारं सक्रिय मित्र मंडळ.
             </div>
           </div>
-
-          <div class="contact-item">
-            <div>
-              <div class="contact-label">Location</div>
-              <div class="contact-value">Pune, India (Open to remote)</div>
+          <div class="badge">
+            <div class="badge-title">मस्त पर्सनॅलिटी डेव्हलपमेंट</div>
+            <div class="badge-text">
+              नेतृत्व, स्टेज प्रोग्राम, आयोजन – सगळं practically इथेच शिकायला मिळतं.
             </div>
           </div>
-
-          <div class="contact-item">
-            <div>
-              <div class="contact-label">GitHub</div>
-              <div class="contact-value">
-                <a href="https://github.com/yourusername" target="_blank" rel="noreferrer">
-                  github.com/yourusername
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div class="contact-item">
-            <div>
-              <div class="contact-label">LinkedIn</div>
-              <div class="contact-value">
-                <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noreferrer">
-                  linkedin.com/in/yourusername
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="social-row">
-          <div class="social-pill">
-            <div><strong>Resume</strong></div>
-            <span>Add a link to your PDF resume here.</span>
-          </div>
-          <div class="social-pill">
-            <div><strong>Side Projects</strong></div>
-            <span>Link to anything cool you’re exploring.</span>
-          </div>
-        </div>
-
-        <div class="footer">
-          © <span id="year"></span> Your Name. Built with plain HTML & CSS, hosted on GitHub Pages.
         </div>
       </section>
-    </main>
-  </div>
+
+      <!-- ACTIVITIES / EVENTS -->
+      <section class="card" id="activities">
+        <h2 class="section-heading">उपक्रम</h2>
+        <p class="section-sub">आम्ही काय काय करतो?</p>
+
+        <div class="event-list">
+          <div class="event">
+            <div class="event-tag">मुख्य उत्सव</div>
+            <div class="event-title">गणेशोत्सव</div>
+            <p class="event-text">
+              गणेशोत्सवात सांस्कृतिक कार्यक्रम, सोशल मेसेज असलेले नाटक, भजन कार्यक्रम,
+              तसेच स्वच्छतेविषयी जनजागृती – हे सगळं आमच्या मंडळाचं वैशिष्ट्य आहे.
+            </p>
+          </div>
+
+          <div class="event">
+            <div class="event-tag">खेळ आणि मजा</div>
+            <div class="event-title">क्रिकेट स्पर्धा / बॉक्स क्रिकेट</div>
+            <p class="event-text">
+              मित्रमंडळात नियमित क्रिकेट / बॉक्स क्रिकेट स्पर्धा, टर्फ मॅचेस,
+              आणि इतर खेळांचे आयोजन करून फिटनेस + मस्ती दोन्ही जपतो.
+            </p>
+          </div>
+
+          <div class="event">
+            <div class="event-tag">समाजसेवा</div>
+            <div class="event-title">रक्तदान शिबीर / सोशल उपक्रम</div>
+            <p class="event-text">
+              वेळोवेळी रक्तदान शिबीर, वृक्षारोपण, गरजू विद्यार्थ्यांना मदत,
+              आणि परिसर स्वच्छता अशा उपक्रमांमधून समाजासाठी थोडसं का होईना योगदान देण्याचा प्रयत्न.
+            </p>
+          </div>
+
+          <div class="event">
+            <div class="event-tag">एक्स्ट्रा धमाल</div>
+            <div class="event-title">सहली आणि ट्रीप्स</div>
+            <p class="event-text">
+              ट्रेक, पिकनिक, एकदिवसीय सहली, नाईट ड्राईव्ह – यामुळे मंडळातील bonding अजून strong होते.
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- GALLERY -->
+    <section class="card" id="gallery" style="margin-top: 16px;">
+      <h2 class="section-heading">फोटो गॅलरी</h2>
+      <p class="section-sub">उत्सव, खेळ, सहली – सगळ्या आठवणी एकाच ठिकाणी</p>
+
+      <p class="para muted">
+        सध्या गॅलरीमध्ये demo बॉक्स ठेवले आहेत. पुढे जाऊन तुम्ही इथे गणेशोत्सव,
+        क्रिकेट, सहली, आणि इतर कार्यक्रमांचे फोटो टाकू शकता.
+      </p>
+
+      <div class="gallery">
+        <div class="photo-box">गणेशोत्सव फोटो (लवकरच)</div>
+        <div class="photo-box">क्रिकेट स्पर्धा फोटो (लवकरच)</div>
+        <div class="photo-box">ट्रीप / सहल फोटो (लवकरच)</div>
+        <div class="photo-box">विशेष कार्यक्रम (लवकरच)</div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="card" id="contact" style="margin-top: 16px;">
+      <h2 class="section-heading">Contact / संपर्क</h2>
+      <p class="section-sub">ग्रुपमध्ये join व्हायचंय? काही सुचना आहेत?</p>
+
+      <div class="contact-item">
+        <div>
+          <div class="contact-label">लोकेशन</div>
+          <div class="contact-value">डांगे चौक, पुणे – महाराष्ट्र</div>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <div>
+          <div class="contact-label">मोबाईल</div>
+          <div class="contact-value">
+            <!-- इथे नंबर टाक -->
+            <span>Sam Bhau / Admin: 9XXXXXXXXX</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <div>
+          <div class="contact-label">WhatsApp ग्रुप</div>
+          <div class="contact-value">
+            <!-- इथे तुमचा खरा लिंक टाक -->
+            <a href="#" target="_blank" rel="noreferrer">ग्रुपमध्ये join होण्यासाठी लिंक (लवकरच)</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <div>
+          <div class="contact-label">Instagram / सोशल</div>
+          <div class="contact-value">
+            <!-- इथे Instagram page link टाक -->
+            <a href="#" target="_blank" rel="noreferrer">@sam_bhau_khambat_mitra_mandal (demo)</a>
+          </div>
+        </div>
+      </div>
+
+      <p class="para muted" style="margin-top: 6px;">
+        👉 वर दिलेले नंबर / लिंक फक्त placeholder आहे. तुम्ही तुमच्या मंडळाचा
+        रिअल नंबर, WhatsApp ग्रुप लिंक, Instagram page इथे टाकू शकता.
+      </p>
+    </section>
+
+    <footer>
+      © <span id="year"></span> सॅम भाऊ खांबट मित्र मंडळ, डांगे चौक.  
+      <br />ही वेबसाईट GitHub Pages वर host केलेली आहे.
+    </footer>
+  </main>
 
   <script>
-    // Set current year in footer
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
+
